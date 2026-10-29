@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cugpuafn1viqj"]
+
+[ext_resource type="Script" uid="uid://dog5k834xhs02" path="res://scripts/gui.gd" id="1_efmwq"]
+[ext_resource type="Texture2D" uid="uid://blp5quu0fgbys" path="res://ui/forward.png" id="2_08a8y"]
+[ext_resource type="Texture2D" uid="uid://c74vm22k32hdg" path="res://ui/Camera.png" id="2_ynd5l"]
+[ext_resource type="Texture2D" uid="uid://c8n7nvswbemqw" path="res://ui/stop.png" id="3_7yii4"]
+[ext_resource type="Texture2D" uid="uid://b1wkyar4mm4w1" path="res://ui/Right_Arrow1.png" id="3_b8iy7"]
+[ext_resource type="Texture2D" uid="uid://8j208bbplm6x" path="res://ui/Tablet.png" id="4_b8iy7"]
+
+[node name="GUI" type="CanvasLayer" unique_id=1443267302]
+script = ExtResource("1_efmwq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1080113815]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=464501952]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1711641665]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=212622607]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1417798204]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=393910291]
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Введите команду"
+keep_editing_on_text_submit = true
+select_all_on_focus = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1337870534]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1237573212]
+visible = false
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+focus_mode = 2
+autowrap_mode = 1
+selection_enabled = true
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=866541583]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+context_menu_enabled = false
+emoji_menu_enabled = false
+indent_wrapped_lines = true
+scroll_smooth = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1650143747]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RunButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=878289555]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("2_08a8y")
+
+[node name="StopButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2135401211]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("3_7yii4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=47021759]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="OrtoButton" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=908837780]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_ynd5l")
+
+[node name="NextCamButton" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=1769983584]
+layout_mode = 2
+texture_normal = ExtResource("3_b8iy7")
+
+[node name="PanelButton" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=1538622756]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_b8iy7")
+
+[node name="StatusLabel" type="Label" parent="MarginContainer" unique_id=591758215]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+autowrap_mode = 3
+
+[connection signal="text_submitted" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="gui_input" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/TextEdit" to="." method="_on_text_edit_gui_input"]
+[connection signal="text_changed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/RunButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/OrtoButton" to="." method="_on_orto_button_toggled"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/NextCamButton" to="." method="_on_next_cam_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/PanelButton" to="." method="_on_panel_button_toggled"]

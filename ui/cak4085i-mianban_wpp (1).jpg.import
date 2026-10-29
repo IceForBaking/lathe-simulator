@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bldo2o6h7uygw"
-path.s3tc="res://.godot/imported/cak4085i-mianban_wpp (1).jpg-6f43a5f96f08d770113c19ed19f72cbf.s3tc.ctex"
+path.s3tc="res://.godot/imported/cak4085i-mianban_wpp (1).jpg-332075c1efbb9bc46e389951e1532a5e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://cak4085i-mianban_wpp (1).jpg"
-dest_files=["res://.godot/imported/cak4085i-mianban_wpp (1).jpg-6f43a5f96f08d770113c19ed19f72cbf.s3tc.ctex"]
+source_file="res://ui/cak4085i-mianban_wpp (1).jpg"
+dest_files=["res://.godot/imported/cak4085i-mianban_wpp (1).jpg-332075c1efbb9bc46e389951e1532a5e.s3tc.ctex"]
 
 [params]
 
